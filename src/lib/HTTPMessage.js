@@ -1,6 +1,10 @@
-function HTTPMessage () {
-    this.method = 'unset';
-    this.path = '/path/not/set';
+function HTTPMessage (message) {
+    var pojoMessage = message || {};
+    var request = pojoMessage.request || {};
+
+    this.method = request.method || 'not set';
+    this.path = request.path || '/path/not/set';
+
     this.version = 'HTTP/1.0';
     this.endline = '\n';
 }
