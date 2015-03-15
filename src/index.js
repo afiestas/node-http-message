@@ -1,7 +1,7 @@
 var HTTPMessage = require('./lib/HTTPMessage');
 
-var getHTTPMessage = function getHTTPMessage() {
-    return new HTTPMessage();
+var getHTTPMessage = function getHTTPMessage(message) {
+    return new HTTPMessage(message);
 };
 
 module.exports = {
