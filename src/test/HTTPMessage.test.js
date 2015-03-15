@@ -29,5 +29,10 @@ suite('HTTPMessage', function(){
             var lines = msg.split(sut.endline);
             assert.equal(lines[0], 'GET /another/path HTTP/1.0', 'Correctly formatted request line');
         });
+        test('Headers should start at the second line', function() {
+            var msg = sut.render();
+            var lines = msg.split(sut.endline);
+            assert.equal(lines[1], 'some-header: some-value', 'Correctly formatted header line');
+        });
     });
 });
