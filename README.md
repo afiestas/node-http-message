@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/afiestas/node-http-message.svg?branch=master)](https://travis-ci.org/afiestas/node-http-message)
 # node-http-message
 Small library to create HTTP Messages.
 
