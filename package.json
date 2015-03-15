@@ -1,0 +1,32 @@
+{
+  "name": "node-http-message",
+  "version": "0.0.1",
+  "description": "Simple library to create HTTP Messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afiestas/node-http-message.git"
+  },
+  "keywords": [
+    "HTTP",
+    "Message",
+    "create",
+    "assembler",
+    "make",
+    "request"
+  ],
+  "author": "Àlex Fiestas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afiestas/node-http-message/issues"
+  },
+  "homepage": "https://github.com/afiestas/node-http-message",
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "mocha": "^2.2.1",
+    "sinon": "^1.14.0"
+  }
+}
