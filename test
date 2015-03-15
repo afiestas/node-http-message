@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-node_modules/.bin/mocha -u tdd -R spec src/test
+cd src/test
+../../node_modules/.bin/mocha -u tdd -R spec *
