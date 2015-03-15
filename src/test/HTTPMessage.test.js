@@ -1,6 +1,6 @@
 var sinon = require('sinon');
 var assert = require('chai').assert;
-var HTTPMEssage = require('../lib/HTTPMEssage')
+var HTTPMEssage = require(__dirname + '/../lib/HTTPMEssage')
 
 suite('HTTPMEssage', function(){
     var sut;
