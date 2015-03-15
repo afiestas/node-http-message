@@ -4,7 +4,7 @@
   "description": "Simple library to create HTTP Messages",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "./test"
   },
   "repository": {
     "type": "git",
