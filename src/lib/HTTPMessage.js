@@ -30,7 +30,7 @@ HTTPMessage.prototype.render = function() {
     }
 
     if (this.body) {
-        msg += 'Content-Length: ' + this.body.length;
+        msg += 'Content-Length: ' + this.body.length + this.endline;
     }
 
     msg += this.endline;
