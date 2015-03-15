@@ -10,5 +10,8 @@ suite('index', function(){
         test('HTTPMessage should be correctly exported', function(){
             assert.equal(index.HTTPMessage, HTTPMessage);
         });
+        test('getHTTPMessage should return an instace of HTTPMessage', function() {
+           assert.instanceOf(index.getHTTPMessage(), HTTPMessage);
+        });
     });
 });
