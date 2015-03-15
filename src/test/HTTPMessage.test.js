@@ -7,12 +7,26 @@ suite('HTTPMessage', function(){
     var headers;
 
     var messageData;
+    var endsWithInjected = false;
     setup(function(){
+        if (!String.prototype.endsWith) {
+            String.prototype.endsWith = function (suffix) {
+                return this.indexOf(suffix, this.length - suffix.length) !== -1;
+            };
+            endsWithInjected = true;
+        }
+
         messageData = {
             request: {method: 'POST', path: '/some/path'},
             headers: {'some-header': 'some-value'}
         };
         sut = new HTTPMessage(messageData);
+    });
+
+    teardown(function(){
+        if (endsWithInjected) {
+            delete String.prototype.endsWith;
+        }
     });
 
     suite('#render', function(){
@@ -33,6 +47,10 @@ suite('HTTPMessage', function(){
             var msg = sut.render();
             var lines = msg.split(sut.endline);
             assert.equal(lines[1], 'some-header: some-value', 'Correctly formatted header line');
+        });
+        test('Last headers line should be followed by just an endline', function(){
+            var msg = sut.render();
+            assert.ok(msg.endsWith(sut.endline+sut.endline), 'Should end with double endline');
         });
     });
 });

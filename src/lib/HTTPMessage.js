@@ -20,6 +20,7 @@ HTTPMessage.prototype.render = function() {
     for (var header in this.headers) {
         msg += header + ': ' + this.headers[header] + this.endline;
     }
+    msg += this.endline;
     return msg;
 };
 
