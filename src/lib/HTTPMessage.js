@@ -30,6 +30,10 @@ HTTPMessage.prototype.render = function() {
     }
 
     msg += this.endline;
+
+    if (this.body) {
+        msg += this.body;
+    }
     return msg;
 };
 

@@ -4,7 +4,7 @@ var HTTPMessage = require('../lib/HTTPMessage')
 
 suite('HTTPMessage', function(){
     var sut;
-    var headers;
+    var body;
 
     var messageData;
     var endsWithInjected = false;
@@ -20,6 +20,8 @@ suite('HTTPMessage', function(){
             request: {method: 'POST', path: '/some/path'},
             headers: {'some-header': 'some-value'}
         };
+        body = 'someBody';
+
         sut = new HTTPMessage(messageData);
     });
 
@@ -53,9 +55,14 @@ suite('HTTPMessage', function(){
             assert.ok(msg.endsWith(sut.endline+sut.endline), 'Should end with double endline');
         });
         test('If body is present, Content-Length should be added', function(){
-            sut.setBody('someBody');
+            sut.setBody(body);
             var lines = sut.render().split(sut.endline);
             assert.include(lines, 'Content-Length: 8');
+        });
+        test('Message should end with body', function(){
+            sut.setBody(body);
+            var msg = sut.render();
+            assert.ok(msg.endsWith(body));
         });
     });
 });
