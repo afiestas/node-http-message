@@ -15,6 +15,10 @@ HTTPMessage.prototype.setRequest = function(method, path) {
     this.path = path;
 };
 
+HTTPMessage.prototype.setHeaders = function(headers) {
+    this.headers = headers;
+};
+
 HTTPMessage.prototype.setBody = function(body) {
     this.body = body;
 };
