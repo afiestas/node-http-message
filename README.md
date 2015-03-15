@@ -4,6 +4,8 @@ Small library to create HTTP Messages.
 
 ## What is supported
 At this moment only http 1.0 is supported.
+We do *not* do any sanity checks on the values passed to HTTPMessage, so it might happen that you end up with
+GET request containing a body, or headers with the same name (Javascript is case sensitive while HTTP is not).
 
 ##Syntax
 ```javascript
