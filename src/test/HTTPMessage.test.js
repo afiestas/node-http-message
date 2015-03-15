@@ -52,5 +52,10 @@ suite('HTTPMessage', function(){
             var msg = sut.render();
             assert.ok(msg.endsWith(sut.endline+sut.endline), 'Should end with double endline');
         });
+        test('If body is present, Content-Length should be added', function(){
+            sut.setBody('someBody');
+            var lines = sut.render().split(sut.endline);
+            assert.include(lines, 'Content-Length: 8');
+        });
     });
 });

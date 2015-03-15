@@ -15,11 +15,20 @@ HTTPMessage.prototype.setRequest = function(method, path) {
     this.path = path;
 };
 
+HTTPMessage.prototype.setBody = function(body) {
+    this.body = body;
+};
+
 HTTPMessage.prototype.render = function() {
     var msg = this.method + ' ' + this.path + ' ' + this.version + this.endline;
     for (var header in this.headers) {
         msg += header + ': ' + this.headers[header] + this.endline;
     }
+
+    if (this.body) {
+        msg += 'Content-Length: ' + this.body.length;
+    }
+
     msg += this.endline;
     return msg;
 };
