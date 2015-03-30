@@ -59,6 +59,12 @@ suite('HTTPMessage', function(){
             var lines = sut.render().split(sut.endline);
             assert.include(lines, 'Content-Length: 8');
         });
+        test('Content-Length should be correctly calculated if it contains multi-byte characters', function(){
+            body = 'someBodyñ';
+            sut.setBody(body);
+            var lines = sut.render().split(sut.endline);
+            assert.include(lines, 'Content-Length: 10');
+        });
         test('Message should end with body', function(){
             sut.setBody(body);
             var msg = sut.render();
