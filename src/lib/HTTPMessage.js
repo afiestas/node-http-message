@@ -26,7 +26,9 @@ HTTPMessage.prototype.setBody = function(body) {
 HTTPMessage.prototype.render = function() {
     var msg = this.method + ' ' + this.path + ' ' + this.version + this.endline;
     for (var header in this.headers) {
-        msg += header + ': ' + this.headers[header] + this.endline;
+        if (this.headers.hasOwnProperty(header)) {
+            msg += header + ': ' + this.headers[header] + this.endline;
+        }
     }
 
     if (this.body) {
