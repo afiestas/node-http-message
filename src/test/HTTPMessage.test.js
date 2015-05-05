@@ -50,6 +50,12 @@ suite('HTTPMessage', function(){
             var lines = msg.split(sut.endline);
             assert.equal(lines[1], 'some-header: some-value', 'Correctly formatted header line');
         });
+        test('Headers should start at the second line', function() {
+            Object.prototype.test = 'test';
+            sut.setHeaders({'another-header': 'another-value'});
+            var msg = sut.render();
+            assert.equal(false, msg.indexOf('test: test') != -1, 'Correctly formatted header line');
+        });
         test('Last headers line should be followed by just an endline', function(){
             var msg = sut.render();
             assert.ok(msg.endsWith(sut.endline+sut.endline), 'Should end with double endline');
